@@ -49,8 +49,11 @@ class App extends Component {
   showSearchResult = (searchString) => {
     fetch(this.url + "&s=" + searchString)
       .then((response) => response.json())
-      .then((responseObject) =>
-        this.setState({ searchedMovies: responseObject.Search })
+      .then((responseObject) => {
+        if (responseObject.Response === 'True') {
+          this.setState({ searchedMovies: responseObject.Search })
+        }
+      }
       );
   };
 
