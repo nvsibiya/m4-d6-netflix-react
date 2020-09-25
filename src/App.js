@@ -38,7 +38,8 @@ class App extends Component {
         .then((responseObject) =>
           this.setState({ starWarsMovies: responseObject.Search })
         ),
-    ])
+    ]
+    )
       .then(() => this.setState({ loading: false }))
       .catch((err) => {
         this.setState({ error: true });
